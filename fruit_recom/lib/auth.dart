@@ -40,7 +40,7 @@ class _Auth1WidgetState extends State<Auth1Widget>
       vsync: this,
       length: 2,
       initialIndex: 0,
-    )..addListener(() => setState(() {}));
+    )..addListener(() => safeSetState(() {}));
     _model.emailAddressTextController ??= TextEditingController();
     _model.emailAddressFocusNode ??= FocusNode();
 
@@ -145,47 +145,51 @@ class _Auth1WidgetState extends State<Auth1Widget>
                       mainAxisSize: MainAxisSize.max,
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
-                        Padding(
-                          padding: EdgeInsetsDirectional.fromSTEB(0, 44, 0, 0),
-                          child: Container(
-                            width: double.infinity,
-                            constraints: BoxConstraints(
-                              maxWidth: 602,
-                            ),
-                            decoration: BoxDecoration(
-                              color: Colors.white,
-                              borderRadius: BorderRadius.only(
-                                bottomLeft: Radius.circular(16),
-                                bottomRight: Radius.circular(16),
-                                topLeft: Radius.circular(0),
-                                topRight: Radius.circular(0),
+                        Align(
+                          alignment: AlignmentDirectional(0, 0),
+                          child: Padding(
+                            padding:
+                                EdgeInsetsDirectional.fromSTEB(0, 44, 0, 0),
+                            child: Container(
+                              width: double.infinity,
+                              constraints: BoxConstraints(
+                                maxWidth: 602,
                               ),
-                            ),
-                            alignment: AlignmentDirectional(-1, 0),
-                            child: Align(
-                              alignment: AlignmentDirectional(-1, 0),
+                              decoration: BoxDecoration(
+                                color: Colors.white,
+                                borderRadius: BorderRadius.only(
+                                  bottomLeft: Radius.circular(16),
+                                  bottomRight: Radius.circular(16),
+                                  topLeft: Radius.circular(0),
+                                  topRight: Radius.circular(0),
+                                ),
+                              ),
+                              alignment: AlignmentDirectional(0, 0),
                               child: Column(
                                 mainAxisSize: MainAxisSize.max,
                                 mainAxisAlignment: MainAxisAlignment.center,
-                                crossAxisAlignment: CrossAxisAlignment.start,
                                 children: [
-                                  Padding(
-                                    padding: EdgeInsetsDirectional.fromSTEB(
-                                        16, 0, 0, 0),
-                                    child: Text(
-                                      'brand.ai',
-                                      style: FlutterFlowTheme.of(context)
-                                          .headlineMedium
-                                          .override(
-                                            fontFamily: 'Plus Jakarta Sans',
-                                            color: Color(0xFF101213),
-                                            fontSize: 24,
-                                            letterSpacing: 0,
-                                            fontWeight: FontWeight.w500,
-                                          ),
+                                  ClipRRect(
+                                    borderRadius: BorderRadius.circular(8),
+                                    child: Image.asset(
+                                      'assets/images/CD_logo.jpg',
+                                      width: 100,
+                                      height: 100,
+                                      fit: BoxFit.cover,
                                     ),
                                   ),
-                                ],
+                                  Text(
+                                    'Welcome!',
+                                    textAlign: TextAlign.center,
+                                    style: FlutterFlowTheme.of(context)
+                                        .bodyMedium
+                                        .override(
+                                          fontFamily: 'Readex Pro',
+                                          fontSize: 40,
+                                          letterSpacing: 0.0,
+                                        ),
+                                  ),
+                                ].divide(SizedBox(height: 20)),
                               ),
                             ),
                           ),
@@ -217,7 +221,7 @@ class _Auth1WidgetState extends State<Auth1Widget>
                                           fontFamily: 'Plus Jakarta Sans',
                                           color: Color(0xFF101213),
                                           fontSize: 36,
-                                          letterSpacing: 0,
+                                          letterSpacing: 0.0,
                                           fontWeight: FontWeight.w600,
                                         ),
                                     unselectedLabelStyle:
@@ -227,7 +231,7 @@ class _Auth1WidgetState extends State<Auth1Widget>
                                               fontFamily: 'Plus Jakarta Sans',
                                               color: Color(0xFF101213),
                                               fontSize: 36,
-                                              letterSpacing: 0,
+                                              letterSpacing: 0.0,
                                               fontWeight: FontWeight.normal,
                                             ),
                                     indicatorColor: Color(0xFF4B39EF),
@@ -277,7 +281,7 @@ class _Auth1WidgetState extends State<Auth1Widget>
                                                         color:
                                                             Color(0xFF57636C),
                                                         fontSize: 14,
-                                                        letterSpacing: 0,
+                                                        letterSpacing: 0.0,
                                                         fontWeight:
                                                             FontWeight.w500,
                                                       ),
@@ -311,7 +315,7 @@ class _Auth1WidgetState extends State<Auth1Widget>
                                                                     0xFF57636C),
                                                                 fontSize: 14,
                                                                 letterSpacing:
-                                                                    0,
+                                                                    0.0,
                                                                 fontWeight:
                                                                     FontWeight
                                                                         .w500,
@@ -374,7 +378,7 @@ class _Auth1WidgetState extends State<Auth1Widget>
                                                           color:
                                                               Color(0xFF101213),
                                                           fontSize: 14,
-                                                          letterSpacing: 0,
+                                                          letterSpacing: 0.0,
                                                           fontWeight:
                                                               FontWeight.w500,
                                                         ),
@@ -417,7 +421,7 @@ class _Auth1WidgetState extends State<Auth1Widget>
                                                                     0xFF57636C),
                                                                 fontSize: 14,
                                                                 letterSpacing:
-                                                                    0,
+                                                                    0.0,
                                                                 fontWeight:
                                                                     FontWeight
                                                                         .w500,
@@ -471,7 +475,8 @@ class _Auth1WidgetState extends State<Auth1Widget>
                                                       contentPadding:
                                                           EdgeInsets.all(24),
                                                       suffixIcon: InkWell(
-                                                        onTap: () => setState(
+                                                        onTap: () =>
+                                                            safeSetState(
                                                           () => _model
                                                                   .passwordVisibility =
                                                               !_model
@@ -501,7 +506,7 @@ class _Auth1WidgetState extends State<Auth1Widget>
                                                           color:
                                                               Color(0xFF101213),
                                                           fontSize: 14,
-                                                          letterSpacing: 0,
+                                                          letterSpacing: 0.0,
                                                           fontWeight:
                                                               FontWeight.w500,
                                                         ),
@@ -567,7 +572,7 @@ class _Auth1WidgetState extends State<Auth1Widget>
                                                                     .white,
                                                                 fontSize: 16,
                                                                 letterSpacing:
-                                                                    0,
+                                                                    0.0,
                                                                 fontWeight:
                                                                     FontWeight
                                                                         .w500,
@@ -620,7 +625,7 @@ class _Auth1WidgetState extends State<Auth1Widget>
                                                                     0xFF101213),
                                                                 fontSize: 14,
                                                                 letterSpacing:
-                                                                    0,
+                                                                    0.0,
                                                                 fontWeight:
                                                                     FontWeight
                                                                         .w500,
@@ -653,20 +658,22 @@ class _Auth1WidgetState extends State<Auth1Widget>
                                                         'Or sign up with',
                                                         textAlign:
                                                             TextAlign.center,
-                                                        style: FlutterFlowTheme
-                                                                .of(context)
-                                                            .labelMedium
-                                                            .override(
-                                                              fontFamily:
-                                                                  'Plus Jakarta Sans',
-                                                              color: Color(
-                                                                  0xFF57636C),
-                                                              fontSize: 14,
-                                                              letterSpacing: 0,
-                                                              fontWeight:
-                                                                  FontWeight
-                                                                      .w500,
-                                                            ),
+                                                        style:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .labelMedium
+                                                                .override(
+                                                                  fontFamily:
+                                                                      'Plus Jakarta Sans',
+                                                                  color: Color(
+                                                                      0xFF57636C),
+                                                                  fontSize: 14,
+                                                                  letterSpacing:
+                                                                      0.0,
+                                                                  fontWeight:
+                                                                      FontWeight
+                                                                          .w500,
+                                                                ),
                                                       ),
                                                     ),
                                                   ),
@@ -764,7 +771,7 @@ class _Auth1WidgetState extends State<Auth1Widget>
                                                                       fontSize:
                                                                           14,
                                                                       letterSpacing:
-                                                                          0,
+                                                                          0.0,
                                                                       fontWeight:
                                                                           FontWeight
                                                                               .bold,
@@ -853,7 +860,7 @@ class _Auth1WidgetState extends State<Auth1Widget>
                                                                             fontSize:
                                                                                 14,
                                                                             letterSpacing:
-                                                                                0,
+                                                                                0.0,
                                                                             fontWeight:
                                                                                 FontWeight.bold,
                                                                           ),
@@ -911,7 +918,7 @@ class _Auth1WidgetState extends State<Auth1Widget>
                                                         color:
                                                             Color(0xFF57636C),
                                                         fontSize: 14,
-                                                        letterSpacing: 0,
+                                                        letterSpacing: 0.0,
                                                         fontWeight:
                                                             FontWeight.w500,
                                                       ),
@@ -945,7 +952,7 @@ class _Auth1WidgetState extends State<Auth1Widget>
                                                                     0xFF57636C),
                                                                 fontSize: 14,
                                                                 letterSpacing:
-                                                                    0,
+                                                                    0.0,
                                                                 fontWeight:
                                                                     FontWeight
                                                                         .w500,
@@ -1008,7 +1015,7 @@ class _Auth1WidgetState extends State<Auth1Widget>
                                                           color:
                                                               Color(0xFF101213),
                                                           fontSize: 14,
-                                                          letterSpacing: 0,
+                                                          letterSpacing: 0.0,
                                                           fontWeight:
                                                               FontWeight.w500,
                                                         ),
@@ -1051,7 +1058,7 @@ class _Auth1WidgetState extends State<Auth1Widget>
                                                                     0xFF57636C),
                                                                 fontSize: 14,
                                                                 letterSpacing:
-                                                                    0,
+                                                                    0.0,
                                                                 fontWeight:
                                                                     FontWeight
                                                                         .w500,
@@ -1105,7 +1112,8 @@ class _Auth1WidgetState extends State<Auth1Widget>
                                                       contentPadding:
                                                           EdgeInsets.all(24),
                                                       suffixIcon: InkWell(
-                                                        onTap: () => setState(
+                                                        onTap: () =>
+                                                            safeSetState(
                                                           () => _model
                                                                   .passwordCreateVisibility =
                                                               !_model
@@ -1135,7 +1143,7 @@ class _Auth1WidgetState extends State<Auth1Widget>
                                                           color:
                                                               Color(0xFF101213),
                                                           fontSize: 14,
-                                                          letterSpacing: 0,
+                                                          letterSpacing: 0.0,
                                                           fontWeight:
                                                               FontWeight.w500,
                                                         ),
@@ -1177,7 +1185,7 @@ class _Auth1WidgetState extends State<Auth1Widget>
                                                                     0xFF57636C),
                                                                 fontSize: 14,
                                                                 letterSpacing:
-                                                                    0,
+                                                                    0.0,
                                                                 fontWeight:
                                                                     FontWeight
                                                                         .w500,
@@ -1231,7 +1239,8 @@ class _Auth1WidgetState extends State<Auth1Widget>
                                                       contentPadding:
                                                           EdgeInsets.all(24),
                                                       suffixIcon: InkWell(
-                                                        onTap: () => setState(
+                                                        onTap: () =>
+                                                            safeSetState(
                                                           () => _model
                                                                   .passwordConfirmVisibility =
                                                               !_model
@@ -1261,7 +1270,7 @@ class _Auth1WidgetState extends State<Auth1Widget>
                                                           color:
                                                               Color(0xFF101213),
                                                           fontSize: 14,
-                                                          letterSpacing: 0,
+                                                          letterSpacing: 0.0,
                                                           fontWeight:
                                                               FontWeight.w500,
                                                         ),
@@ -1344,7 +1353,7 @@ class _Auth1WidgetState extends State<Auth1Widget>
                                                                     .white,
                                                                 fontSize: 16,
                                                                 letterSpacing:
-                                                                    0,
+                                                                    0.0,
                                                                 fontWeight:
                                                                     FontWeight
                                                                         .w500,
@@ -1378,20 +1387,22 @@ class _Auth1WidgetState extends State<Auth1Widget>
                                                         'Or sign up with',
                                                         textAlign:
                                                             TextAlign.center,
-                                                        style: FlutterFlowTheme
-                                                                .of(context)
-                                                            .labelMedium
-                                                            .override(
-                                                              fontFamily:
-                                                                  'Plus Jakarta Sans',
-                                                              color: Color(
-                                                                  0xFF57636C),
-                                                              fontSize: 14,
-                                                              letterSpacing: 0,
-                                                              fontWeight:
-                                                                  FontWeight
-                                                                      .w500,
-                                                            ),
+                                                        style:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .labelMedium
+                                                                .override(
+                                                                  fontFamily:
+                                                                      'Plus Jakarta Sans',
+                                                                  color: Color(
+                                                                      0xFF57636C),
+                                                                  fontSize: 14,
+                                                                  letterSpacing:
+                                                                      0.0,
+                                                                  fontWeight:
+                                                                      FontWeight
+                                                                          .w500,
+                                                                ),
                                                       ),
                                                     ),
                                                   ),
@@ -1489,7 +1500,7 @@ class _Auth1WidgetState extends State<Auth1Widget>
                                                                       fontSize:
                                                                           14,
                                                                       letterSpacing:
-                                                                          0,
+                                                                          0.0,
                                                                       fontWeight:
                                                                           FontWeight
                                                                               .bold,
@@ -1578,7 +1589,7 @@ class _Auth1WidgetState extends State<Auth1Widget>
                                                                             fontSize:
                                                                                 14,
                                                                             letterSpacing:
-                                                                                0,
+                                                                                0.0,
                                                                             fontWeight:
                                                                                 FontWeight.bold,
                                                                           ),
